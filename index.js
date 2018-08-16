@@ -1,4 +1,6 @@
 
+//Firebase fulfillment for Dialogflow
+
 'use strict';
 
 const functions = require('firebase-functions');
@@ -19,7 +21,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
   console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
 
-   function sendLocation(agent) {
+   function sendLocation(agent) { //gets location parameter and uploads in a Firebase database
      const location = agent.parameters.location;
      return admin.database().ref('/locations').set(location);
    }
