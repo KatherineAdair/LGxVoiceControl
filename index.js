@@ -22,6 +22,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
    function sendLocation(agent) { //gets location parameter and uploads in a Firebase database
      const location = agent.parameters.location;
+     agent.add("Displaying location in Liquid Galaxy...");
      return admin.database().ref('input').set({command : 'goto' , location : location});
    }
    
@@ -29,6 +30,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
    {
         const value = agent.parameters.number;
         const command = agent.parameters.command;
+        agent.add("Changing the parameter...");
         return admin.database().ref('input').set({command : command , value : value}); 
    }
    
@@ -36,13 +38,15 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
    {
        const value = agent.parameters.number;
        const orientation = agent.parameters.orientation;
+       agent.add("Executing your command...");
        return admin.database().ref('input').set({command : 'move' , value : value , orientation : orientation});
    }
    
    function sendScale(agent)
    {
        const value = agent.parameters.number;
-       const level = agent.parameters.zoomValue; 
+       const level = agent.parameters.zoomValue;
+       agent.add("Changing the zoom level...");
        return admin.database().ref('input').set({command : 'zoom' , value : value , level : level});
    }
    
