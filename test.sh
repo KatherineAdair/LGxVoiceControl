@@ -1,3 +1,3 @@
 #!/bin/bash
 
-git clone 'LGxVoiceControl'
+git clone 'https://github.com/KatherineAdair/LGxVoiceControl'
