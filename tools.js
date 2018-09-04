@@ -18,7 +18,7 @@ var ref = database.ref("/input");
 ref.on("value", function(snapshot) //listen for changes in database
 {	
 	var data = snapshot.toJSON(); //get JSON data
-	fs.writeFile("/path/to/data.json", JSON.stringify(data) , function(err) //write data to file
+	fs.writeFile("data.json", JSON.stringify(data) , function(err) //write data to file
   	{
     		if(err) 
 		{
