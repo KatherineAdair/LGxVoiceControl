@@ -2,11 +2,11 @@
 
 import os, json
 
-with open('/path/to/data.json') as json_data: #getting data from firebase
+with open('data.json') as json_data: #getting data from firebase
     data = json.load(json_data)
 
-query = open("/path/to/query.txt", "w") #creating query.txt
-os.chown("/path/to/query.txt", <UserId>, <UserId>) #changing file owner to prevent google earth from re-reading the file
+query = open("/tmp/query.txt", "w") #creating query.txt
+os.chown("/tmp/query.txt", <UserId>, <UserId>) #changing file owner to prevent google earth from re-reading the file
 
 command_type = data["command"]
 
